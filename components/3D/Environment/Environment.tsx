@@ -18,8 +18,6 @@ export default function Environment({}: Props) {
   const orbitRef = useRef<any>(null);
   return (
     <>
-      {/* <Stats /> */}
-      <Perf />
       <Lights />
       <OrbitControls
         ref={orbitRef}
