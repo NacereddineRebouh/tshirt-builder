@@ -12,7 +12,7 @@ export default function Lights({}: Props) {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <Environment preset="studio" />
+      <Environment preset="city" />
       {/* <spotLight
         ref={light}
         position={[20, 20, 20]}
@@ -32,7 +32,7 @@ export default function Lights({}: Props) {
         castShadow
       /> */}
       {/* <ambientLight /> */}
-      <pointLight position={[10, 10, 10]} />
+      <pointLight intensity={0.2} position={[10, 10, 10]} />
     </>
   );
 }

@@ -14,6 +14,7 @@ import {
 } from "@/lib/slices/targetSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
 import { Group, Mesh, MeshStandardMaterial, Object3D, Scene } from "three";
+import gsap, { Power2, Power3 } from "gsap";
 
 type GLTFResult = any;
 export function Shirt2(props: JSX.IntrinsicElements["group"]) {
@@ -25,8 +26,26 @@ export function Shirt2(props: JSX.IntrinsicElements["group"]) {
   }, []);
   const ModelNodes: any = useAppSelector(selectModelNodes);
   const ModelMaterial = useAppSelector(selectModelMaterial);
+  const shirt = useRef<Group>(null);
+
+  useEffect(() => {
+    if (shirt.current) {
+      gsap.to(shirt.current.rotation, {
+        y: Math.PI * 2 + Math.PI,
+        duration: 1.2,
+        ease: Power2.easeInOut,
+      });
+      gsap.to(shirt.current.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 1.2,
+        ease: Power2.easeInOut,
+      });
+    }
+  }, []);
   return (
-    <group {...props} dispose={null}>
+    <group ref={shirt} scale={[0, 0, 0]} {...props} dispose={null}>
       <group scale={1}>
         {ModelNodes &&
           Object.keys(ModelNodes).map((val: any, index) => {

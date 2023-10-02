@@ -23,7 +23,8 @@ export default function Environment({}: Props) {
       <Lights />
       <OrbitControls
         ref={orbitRef}
-        enablePan
+        enablePan={false}
+        enableZoom={false}
         enableDamping
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={0}
@@ -32,9 +33,9 @@ export default function Environment({}: Props) {
       {/* <AdaptiveDpr />
       <AdaptiveEvents /> */}
       <ContactShadows
-        position={[0, -1.4, 0]}
+        position={[0, -0.45, 0]}
         opacity={0.75}
-        scale={10}
+        scale={4}
         blur={2.5}
         far={4}
       />

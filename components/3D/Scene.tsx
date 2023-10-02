@@ -36,30 +36,19 @@ type Props = {
 };
 
 export default function Scene({ model }: Props) {
-  const shirt = useRef<any>(null);
-  useLayoutEffect(() => {
-    gsap.to(shirt.current, {
-      rotation: "540",
-    });
-  }, []);
   return (
     <>
       <Canvas className="flex-1 w-full h-full">
         <Environment />
-        <Stage environment="city" intensity={0.6}>
-          <Shirt2 ref={shirt} rotation={[0, Math.PI, 0]} />
-        </Stage>
+        {/* <Stage environment="city" intensity={0.6} adjustCamera> */}
+        <Shirt2 position={[0, -0.33, 0]} rotation={[0, Math.PI, 0]} />
+        {/* </Stage> */}
         <PerspectiveCamera
           makeDefault={true}
           // target
-          position={[0, 1, -10]}
+          position={[0, 0, -2]}
           // lookAt={new Vector3(0, 0, 0)}
           fov={25}
-          onWheel={() => {
-            // if(cameraRef.current){
-            //   cameraRef.current.
-            // }
-          }}
         />
         {/* <PresentationControls
           config={{ mass: 2, tension: 200 }}

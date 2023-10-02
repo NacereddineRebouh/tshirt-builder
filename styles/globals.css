@@ -13,3 +13,6 @@ body {
   padding: 0;
   margin: 0;
 }
+.mantine-Input-input {
+  @apply bg-stone-200 outline-stone-600;
+}
